@@ -73,7 +73,7 @@ def direct_link_generator(link: str):
 
 def zippy_share(url: str) -> str:
     base_url = re_search('http.+.zippyshare.com', url).group()
-    response = requests.get(url)
+    response = rget(url)
     pages = BeautifulSoup(response.text, "html.parser")
     js_script = pages.find("div", style="margin-left: 24px; margin-top: 20px; text-align: center; width: 303px; height: 105px;").text
     if js_script is None:
