@@ -10,7 +10,7 @@ def sleep(update, context):
     elif alive.returncode is None:
         alive.kill()
         msg = f"Okey, I'm going to sleep within 30 minutes.\n\n"
-        msg += f"In case you've changed your mind and want to use the bot again before the sleep then restart the bot. /{BotCommands.RestartCommand}\n\n"
+        msg += f"In case you've changed your mind and want to use me again before I sleep then restart the bot. /{BotCommands.RestartCommand}\n\n"
         msg += f'Open this link when you want to wake up the bot {BASE_URL}.'
         sendMessage(msg, context.bot, update.message)
     else:
