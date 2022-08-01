@@ -100,11 +100,7 @@ def getAllDownload(req_status: str):
     return None
 
 def bt_selection_buttons(id_: str):
-    if len(id_) > 20:
-        gid = id_[:12]
-    else:
-        gid = id_
-
+    gid = id_[:12] if len(id_) > 20 else id_
     pincode = ""
     for n in id_:
         if n.isdigit():
@@ -442,6 +438,8 @@ Made with ❤️ by Dawn
 """
     return stats
 
-dispatcher.add_handler(CallbackQueryHandler(refresh, pattern="^" + str(ONE) + "$"))
-dispatcher.add_handler(CallbackQueryHandler(close, pattern="^" + str(TWO) + "$"))
-dispatcher.add_handler(CallbackQueryHandler(pop_up_stats, pattern="^" + str(THREE) + "$"))
+dispatcher.add_handler(CallbackQueryHandler(refresh, pattern=f"^{str(ONE)}$"))
+dispatcher.add_handler(CallbackQueryHandler(close, pattern=f"^{str(TWO)}$"))
+dispatcher.add_handler(
+    CallbackQueryHandler(pop_up_stats, pattern=f"^{str(THREE)}$")
+)
